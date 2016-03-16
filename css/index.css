@@ -1,0 +1,163 @@
+/* Fonts */
+
+@font-face {
+    font-family: 'Franklin Gothic Book';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Franklin Gothic Book'), url('FRABK.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Star Jedi';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Franklin Gothic Book'), url('FRABK.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Star Jedi';
+    font-style: normal;
+    font-weight: normal;
+    src: local('starjedi'), url('starjedi.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Star Jedi Hollow';
+    font-style: normal;
+    font-weight: normal;
+    src: local('starjhol'), url('starjhol.woff') format('woff');
+}
+
+/* Key frame animations */
+@keyframes fadeInOut {
+  0%   { opacity: 0; }
+  50%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes starWarsFontReduce {
+    0% { transform: scale(1); }
+    100% { transform: scale(0); }
+}
+@keyframes starWarsAppear {
+    0% { opacity: 1 }
+    100% { opacity: 1 }
+}
+@keyframes starWarsDisappear {
+    0% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+@keyframes crawl {
+    0% { transform: perspective(300px) rotateX(40deg) translateY(150%)}
+    100% { transform: perspective(300px) rotateX(40deg) translateY(-200%)}
+}
+
+
+body {
+    /* star field */
+    background: black;
+    background-image:
+        radial-gradient(1px 1px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 50px 160px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 220px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 40px 270px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 50px 360px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 90px 240px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 130px 280px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 220px 230px, #eee, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 240px 270px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 250px 160px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 290px 40px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 330px 80px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 360px 120px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 220px 230px, #eee, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 240px 270px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 250px 360px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 290px 240px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 330px 280px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 360px 320px, #ddd, rgba(0,0,0,0));
+      background-repeat: repeat;
+      background-size: 400px 400px;
+
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#a-long-time-ago {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+}
+
+#a-long-time-ago-text {
+    animation: fadeInOut 7s;
+    color: rgb(75, 213, 238);
+    letter-spacing: 0.1em;
+    font-family: 'Franklin Gothic Book';
+    font-size: 2em;
+    opacity: 0;
+    text-align: left;
+}
+
+#star-wars {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    top: 0;
+}
+
+#star-wars-text {
+    animation: starWarsAppear 11s 9s, starWarsFontReduce 10s 9s, starWarsDisappear 1s 19s infinite; /* 7s for intro, 2s for pause */
+    color: black;
+    font-family: 'Star Jedi';
+    font-size: 19em;
+    line-height: 0.9em;
+    opacity: 0;
+    text-shadow: -0.03em -0.03em 0 rgb(229, 177, 58),
+                     0.03em -0.03em 0 rgb(229, 177, 58),
+                     -0.03em 0.03em 0 rgb(229, 177, 58),
+                      0.03em 0.03em 0 rgb(229, 177, 58);
+    transform: scale(1);
+}
+
+#crawl-container {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    top: 0;
+}
+
+#crawl {
+    animation: starWarsAppear 1s 20s infinite, crawl 50s 20s, starWarsDisappear 1s 70s infinite;
+    color: rgb(229, 177, 58);
+    opacity: 0;
+    font-family: 'Franklin Gothic Book';
+    font-size: 1.5em;
+    line-height: 1.5em;
+    max-width: 500px;
+    text-align: justify;
+    transform-origin: 50% 100%;
+    transform: perspective(300px) rotateX(32deg);
+    width: 20em;
+}
+
+#crawl .center {
+    text-align: center;
+}
